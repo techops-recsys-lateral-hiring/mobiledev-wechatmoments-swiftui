@@ -11,6 +11,12 @@
 		58F9255A2B88A757008C4217 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F925592B88A757008C4217 /* ImageHelper.swift */; };
 		58F9255D2B88A96E008C4217 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F9255C2B88A96E008C4217 /* Constant.swift */; };
 		58F9255F2B88A9D6008C4217 /* UrlConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F9255E2B88A9D6008C4217 /* UrlConstant.swift */; };
+		58F925642B88AB3F008C4217 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F925632B88AB3F008C4217 /* HttpService.swift */; };
+		58F925662B88AB54008C4217 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F925652B88AB54008C4217 /* UserService.swift */; };
+		58F925682B88AB67008C4217 /* TweetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F925672B88AB67008C4217 /* TweetService.swift */; };
+		58F9256B2B88ABF8008C4217 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F9256A2B88ABF8008C4217 /* UIColor.swift */; };
+		58F9256D2B88ABFF008C4217 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F9256C2B88ABFF008C4217 /* UIImage.swift */; };
+		58F9256F2B88AC06008C4217 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F9256E2B88AC06008C4217 /* String.swift */; };
 		6AE197B42B8732BE00901ED1 /* WeChatMomentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE197B32B8732BE00901ED1 /* WeChatMomentsApp.swift */; };
 		6AE197B62B8732BE00901ED1 /* MomentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE197B52B8732BE00901ED1 /* MomentView.swift */; };
 		6AE197B82B8732BF00901ED1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AE197B72B8732BF00901ED1 /* Assets.xcassets */; };
@@ -42,6 +48,12 @@
 		58F925592B88A757008C4217 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		58F9255C2B88A96E008C4217 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		58F9255E2B88A9D6008C4217 /* UrlConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlConstant.swift; sourceTree = "<group>"; };
+		58F925632B88AB3F008C4217 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
+		58F925652B88AB54008C4217 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		58F925672B88AB67008C4217 /* TweetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetService.swift; sourceTree = "<group>"; };
+		58F9256A2B88ABF8008C4217 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		58F9256C2B88ABFF008C4217 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		58F9256E2B88AC06008C4217 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		6AE197B02B8732BE00901ED1 /* WeChatMoments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChatMoments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE197B32B8732BE00901ED1 /* WeChatMomentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatMomentsApp.swift; sourceTree = "<group>"; };
 		6AE197B52B8732BE00901ED1 /* MomentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentView.swift; sourceTree = "<group>"; };
@@ -104,6 +116,26 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		58F925622B88AB34008C4217 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				58F925632B88AB3F008C4217 /* HttpService.swift */,
+				58F925652B88AB54008C4217 /* UserService.swift */,
+				58F925672B88AB67008C4217 /* TweetService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		58F925692B88ABE6008C4217 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				58F9256A2B88ABF8008C4217 /* UIColor.swift */,
+				58F9256C2B88ABFF008C4217 /* UIImage.swift */,
+				58F9256E2B88AC06008C4217 /* String.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		6AE197A72B8732BE00901ED1 = {
 			isa = PBXGroup;
 			children = (
@@ -127,8 +159,10 @@
 		6AE197B22B8732BE00901ED1 /* WeChatMoments */ = {
 			isa = PBXGroup;
 			children = (
-				58F925552B88A704008C4217 /* Model */,
 				58F9255B2B88A95D008C4217 /* Config */,
+				58F925692B88ABE6008C4217 /* Extension */,
+				58F925552B88A704008C4217 /* Model */,
+				58F925622B88AB34008C4217 /* Service */,
 				58F925582B88A73E008C4217 /* Utils */,
 				6AE197B32B8732BE00901ED1 /* WeChatMomentsApp.swift */,
 				6AE197B52B8732BE00901ED1 /* MomentView.swift */,
@@ -294,11 +328,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				58F925572B88A71E008C4217 /* MyModels.swift in Sources */,
+				58F9256D2B88ABFF008C4217 /* UIImage.swift in Sources */,
 				6AE197B62B8732BE00901ED1 /* MomentView.swift in Sources */,
 				58F9255D2B88A96E008C4217 /* Constant.swift in Sources */,
 				58F9255F2B88A9D6008C4217 /* UrlConstant.swift in Sources */,
+				58F925662B88AB54008C4217 /* UserService.swift in Sources */,
+				58F9256F2B88AC06008C4217 /* String.swift in Sources */,
 				6AE197B42B8732BE00901ED1 /* WeChatMomentsApp.swift in Sources */,
 				58F9255A2B88A757008C4217 /* ImageHelper.swift in Sources */,
+				58F925642B88AB3F008C4217 /* HttpService.swift in Sources */,
+				58F925682B88AB67008C4217 /* TweetService.swift in Sources */,
+				58F9256B2B88ABF8008C4217 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
