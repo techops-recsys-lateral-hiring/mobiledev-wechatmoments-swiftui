@@ -5,7 +5,8 @@
 //  Created by nontapat.siengsanor on 23/2/24.
 //
 
-import PromiseKit
+import Combine
+import Foundation
 
 class UserService {
     private var httpService: BaseService
@@ -14,11 +15,12 @@ class UserService {
         self.httpService = HttpService()
     }
 
-    func getUserProfile(_ name: String) -> Promise<User?> {
+    func getUserProfile(_ name: String) -> AnyPublisher<User, Error> {
         let url = UrlConstant.userProfleUrl(name: name)
-        return httpService.get(url: url).map { data in
-            let user: User = try! JSONDecoder().decode(User.self, from: data)
-            return user
-        }
+
+        return httpService
+            .get(url: url)
+            .decode(type: User.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
     }
 }

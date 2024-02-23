@@ -5,7 +5,8 @@
 //  Created by nontapat.siengsanor on 23/2/24.
 //
 
-import PromiseKit
+import Combine
+import Foundation
 
 class TweetService {
     private var httpService: BaseService
@@ -14,11 +15,12 @@ class TweetService {
         self.httpService = HttpService()
     }
 
-    func getTweets(_ userName: String) -> Promise<[Tweet]> {
+    func getTweets(_ userName: String) -> AnyPublisher<[Tweet], Error> {
         let url = UrlConstant.tweetsUrl(name: userName)
-        return httpService.get(url: url).map { data in
-            let tweets: [Tweet] = try JSONDecoder().decode([Tweet].self, from: data)
-            return tweets
-        }
+
+        return httpService
+            .get(url: url)
+            .decode(type: [Tweet].self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
     }
 }
