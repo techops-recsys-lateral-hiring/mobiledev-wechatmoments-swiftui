@@ -1,5 +1,5 @@
 //
-//  Utils.swift
+//  ImageHelper.swift
 //  WeChatMoments
 //
 //  Created by nontapat.siengsanor on 23/2/24.

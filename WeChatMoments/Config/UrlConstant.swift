@@ -8,13 +8,13 @@
 import UIKit
 
 enum UrlConstant {
-    private static let HOST = "http://localhost:2727"
+    private static let hostUrl = URL(string: "http://localhost:2727")!
 
-    static func userProfleUrl(name: String) -> String {
-        return "\(UrlConstant.HOST)/user/\(name)"
+    static func userProfleUrl(name: String) -> URL {
+        return hostUrl.appending(path: "/user/\(name)")
     }
 
-    static func tweetsUrl(name: String) -> String {
-        return "\(UrlConstant.HOST)/user/\(name)/tweets"
+    static func tweetsUrl(name: String) -> URL {
+        return hostUrl.appending(path: "/user/\(name)/tweets")
     }
 }

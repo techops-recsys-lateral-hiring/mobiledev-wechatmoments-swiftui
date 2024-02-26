@@ -5,25 +5,24 @@
 //  Created by nontapat.siengsanor on 23/2/24.
 //
 
-import Alamofire
-import PromiseKit
-import SwiftyJSON
+import Combine
+import Foundation
 
 protocol BaseService {
-    func get(url: String) -> Promise<Data>
+    func get(url: URL) -> AnyPublisher<Data, URLError>
 }
 
 class HttpService: BaseService {
-    func get(url: String) -> Promise<Data> {
-        return Promise { resolve in
-            AF.request(url).responseData(completionHandler: { response in
-                switch response.result {
-                case .success(let data):
-                    resolve.resolve(data, nil)
-                case .failure(let error):
-                    resolve.reject(error)
-                }
-            })
-        }
+    private let urlSession: URLSession
+
+    init(urlSession: URLSession = .shared) {
+        self.urlSession = urlSession
+    }
+
+    func get(url: URL) -> AnyPublisher<Data, URLError> {
+        return urlSession
+            .dataTaskPublisher(for: url)
+            .map(\.data)
+            .eraseToAnyPublisher()
     }
 }
