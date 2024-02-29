@@ -18,7 +18,7 @@ class UserServiceTests: XCTestCase {
     override class func tearDown() {
     }
 
-    func testRightURL() {
+    func test_right_url() {
         let readyExpectation = expectation(description: "ready")
 
         self.userService.getUserProfile(TestDataConfig.USER).sink { completion in
@@ -41,7 +41,7 @@ class UserServiceTests: XCTestCase {
         }
     }
 
-    func testWrongURL() {
+    func test_wrong_url() {
         let readyExpectation = expectation(description: "ready")
 
         self.userService.getUserProfile("jsmitn2").sink { completion in

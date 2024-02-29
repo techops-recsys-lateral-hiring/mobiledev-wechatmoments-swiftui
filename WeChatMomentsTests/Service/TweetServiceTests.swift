@@ -18,7 +18,7 @@ class TweetServiceTests: XCTestCase {
     override class func tearDown() {
     }
 
-    func testRightURL() {
+    func test_right_url() {
         let readyExpectation = expectation(description: "ready")
 
         self.tweetService.getTweets(TestDataConfig.USER).sink { completion in
@@ -39,7 +39,7 @@ class TweetServiceTests: XCTestCase {
         }
     }
 
-    func testWrongURL() {
+    func test_wrong_url() {
         let readyExpectation = expectation(description: "ready")
         tweetService.getTweets("jsmitn2").sink { completion in
             switch completion{

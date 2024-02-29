@@ -17,7 +17,7 @@ class HttpServiceTests: XCTestCase {
     
     override class func tearDown() {}
     
-    func testGetSuccess() {
+    func test_get_success() {
         let readyExpectation = expectation(description: "ready")
         let url = URL(string: TestDataConfig.URL_HOST)!
 
