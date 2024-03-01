@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B8B6BDC2B8E42B4005A9EFD /* CommentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B6BDB2B8E42B4005A9EFD /* CommentRowView.swift */; };
+		0B8B6BDE2B8FACDD005A9EFD /* TweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8B6BDD2B8FACDD005A9EFD /* TweetView.swift */; };
 		58F925572B88A71E008C4217 /* MyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F925562B88A71E008C4217 /* MyModels.swift */; };
 		58F9255A2B88A757008C4217 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F925592B88A757008C4217 /* ImageHelper.swift */; };
 		58F9255D2B88A96E008C4217 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F9255C2B88A96E008C4217 /* Constant.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		0B8B6BDB2B8E42B4005A9EFD /* CommentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowView.swift; sourceTree = "<group>"; };
+		0B8B6BDD2B8FACDD005A9EFD /* TweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetView.swift; sourceTree = "<group>"; };
 		58F925562B88A71E008C4217 /* MyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyModels.swift; sourceTree = "<group>"; };
 		58F925592B88A757008C4217 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		58F9255C2B88A96E008C4217 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				0B8B6BDB2B8E42B4005A9EFD /* CommentRowView.swift */,
+				0B8B6BDD2B8FACDD005A9EFD /* TweetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				58F9255F2B88A9D6008C4217 /* UrlConstant.swift in Sources */,
 				58F925662B88AB54008C4217 /* UserService.swift in Sources */,
 				58F9256F2B88AC06008C4217 /* String.swift in Sources */,
+				0B8B6BDE2B8FACDD005A9EFD /* TweetView.swift in Sources */,
 				6AE197B42B8732BE00901ED1 /* WeChatMomentsApp.swift in Sources */,
 				58F9255A2B88A757008C4217 /* ImageHelper.swift in Sources */,
 				58F925642B88AB3F008C4217 /* HttpService.swift in Sources */,
