@@ -30,7 +30,7 @@ class TweetServiceTests: XCTestCase {
             }
         } receiveValue: { tweets in
             if tweets.count == 0 {
-                XCTAssertTrue(false, "The tweets should be not nil")
+                XCTAssertTrue(false, "The tweets should not be nil")
             }
         }.store(in: &cancellables)
 
@@ -51,7 +51,7 @@ class TweetServiceTests: XCTestCase {
         } receiveValue: { tweets in
             let numberOfTweets = tweets.count
             if numberOfTweets > 0 {
-                XCTAssertTrue(false, "There should be not tweet")
+                XCTAssertTrue(false, "There should be no tweet")
             }
         }.store(in: &cancellables)
         

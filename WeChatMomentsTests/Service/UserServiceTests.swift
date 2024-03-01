@@ -52,7 +52,7 @@ class UserServiceTests: XCTestCase {
                 XCTAssertThrowsError("request failed,error happen")
             }
         } receiveValue: { user in
-            XCTAssertNil(user.username, "UserName should be nil.")
+            XCTAssertNil(user.username, "user name should be nil.")
             XCTAssertNil(user.avatar, "User avatar should be nil.")
             XCTAssertNil(user.nick, "User nick name should be nil.")
             XCTAssertNil(user.profile, "User profile should be nil.")

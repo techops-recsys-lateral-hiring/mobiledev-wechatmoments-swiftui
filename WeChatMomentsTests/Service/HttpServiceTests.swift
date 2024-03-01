@@ -29,7 +29,7 @@ class HttpServiceTests: XCTestCase {
                 XCTAssertThrowsError("request failed,error happen")
             }
         } receiveValue: { jsonString in
-            XCTAssertNotNil(jsonString, "Request should  success.")
+            XCTAssertNotNil(jsonString, "Requests should succeed.")
         }.store(in: &cancellables)
 
         waitForExpectations(timeout: 10) { error in
