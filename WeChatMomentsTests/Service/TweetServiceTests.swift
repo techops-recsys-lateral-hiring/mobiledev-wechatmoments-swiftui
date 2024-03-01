@@ -29,7 +29,7 @@ class TweetServiceTests: XCTestCase {
                 XCTAssertThrowsError("request failed,error happen")
             }
         } receiveValue: { tweets in
-            if tweets.count == 0 {
+            if tweets.isEmpty {
                 XCTAssertTrue(false, "The tweets should not be nil")
             }
         }.store(in: &cancellables)
