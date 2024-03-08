@@ -17,5 +17,5 @@ enum Constants {
     static let TWEET_AVATAR_OFFSET: CGFloat = 5
     static let TWEET_SENDER_LEFT_OFFSET: CGFloat = 15
     static let TWEET_CONTENT_TOP_OFFSET: CGFloat = 6
-    static let TWEET_IMAGE_SPEPERATOR_SPACE: CGFloat = 5
+    static let TWEET_IMAGE_SEPARATOR_SPACE: CGFloat = 5
 }
