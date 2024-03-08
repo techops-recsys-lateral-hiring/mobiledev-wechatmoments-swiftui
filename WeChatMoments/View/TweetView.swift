@@ -14,7 +14,7 @@ struct TweetView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
+            HStack(alignment: .top) {
                 // TODO: Use correct tweet sender avatar
                 avatar(_from: nil)
                     .frame(
@@ -22,20 +22,25 @@ struct TweetView: View {
                         height: Constants.SENDER_AVATAR_SIZE.height)
                     .cornerRadius(5.0)
 
+                Spacer()
                 // TODO: Assign the correct user name or nickname
-                Text("Placeholder Profile")
-                    .font(.system(size: Constants.FONT_SIZE_CONTENT))
-                    .foregroundColor(.blue)
-                    .padding(.leading, Constants.TWEET_SENDER_LEFT_OFFSET)
-                    .frame(maxWidth: 100)
-            }
-            Text(tweet.content ?? "")
-                .foregroundColor(.black)
-                .font(.system(size: Constants.FONT_SIZE_CONTENT))
-                .lineLimit(nil)
-                .padding(.top, Constants.TWEET_CONTENT_TOP_OFFSET)
+                VStack(alignment: .leading) {
+                    Text("Placeholder Profile")
+                        .font(.system(size: Constants.FONT_SIZE_CONTENT))
+                        .foregroundColor(.blue)
 
-            // TODO: Add tweet image grid to view
+                    Text(tweet.content ?? "")
+                        .foregroundColor(.black)
+                        .font(.system(size: Constants.FONT_SIZE_CONTENT))
+                        .lineLimit(nil)
+                        .padding(.top, Constants.TWEET_CONTENT_TOP_OFFSET)
+
+                    // TODO: Add tweet image grid to view
+                }
+                .padding(.leading, Constants.TWEET_SENDER_LEFT_OFFSET)
+
+                Spacer()
+            }
         }
         .padding(.all)
     }
