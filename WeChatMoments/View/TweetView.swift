@@ -36,6 +36,7 @@ struct TweetView: View {
                         .padding(.top, Constants.TWEET_CONTENT_TOP_OFFSET)
 
                     // TODO: Add tweet image grid to view
+                    addImagesToView(_from: [])
                 }
                 .padding(.leading, Constants.TWEET_SENDER_LEFT_OFFSET)
 
@@ -56,7 +57,7 @@ struct TweetView: View {
         return avatar
     }
 
-    private func addImagesToView(_from URLs: [String]?) -> (any View)? {
+    private func addImagesToView(_from URLs: [String]?) -> AnyView? {
         guard let imageURLs = URLs else { return nil }
         var images: [Image] = []
 
@@ -82,7 +83,7 @@ struct TweetView: View {
                 }
             }
         }
-                         .padding()
+                         .padding() as? AnyView
     }
 
     private func fetchImage(_from URL: String) -> Image? {
