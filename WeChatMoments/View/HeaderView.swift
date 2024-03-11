@@ -23,34 +23,31 @@ struct HeaderView: View {
 
     var body: some View {
         VStack{
-            GeometryReader{ outerView in
-                ZStack{
-                    GeometryReader{ innerView in
-                        profileImage
+            ZStack{
+                GeometryReader{ proxy in
+                    profileImage
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: proxy.size.width,height: headerViewHeight)
+                        .clipped()
+                    HStack(spacing:20){
+                        Text(nickname)
+                            .frame(width: nickNameLabelWidth,alignment: .trailing)
+                            .font(.system(size: nickNameFontSize,weight: .bold))
+                            .foregroundColor(.white)
+                            .lineLimit(1)
+                            .truncationMode(.middle)
+                            .padding(.bottom,15)
+                        avatarImage
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: innerView.size.width,height: headerViewHeight)
-                            .clipped()
-                        HStack(spacing:20){
-                            Text(nickname)
-                                .frame(width: nickNameLabelWidth,alignment: .trailing)
-                                .font(.system(size: nickNameFontSize,weight: .bold))
-                                .foregroundColor(.white)
-                                .lineLimit(1)
-                                .truncationMode(.middle)
-                                .padding(.bottom,15)
-                            avatarImage
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: avatarImageWidth, height: avatarImageHeight)
-                                .clipShape(RoundedRectangle(cornerRadius: 5))
-                                .border(.white, width: 2)
-                        }.offset(x:avatarImageXOffset(from: innerView),y: avatarImageYOffset())
-                    }
-                }.frame(width: outerView.size.width,height: headerViewHeight)
+                            .scaledToFill()
+                            .frame(width: avatarImageWidth, height: avatarImageHeight)
+                            .clipShape(RoundedRectangle(cornerRadius: 5))
+                            .border(.white, width: 2)
+                    }.offset(x:avatarImageXOffset(from: proxy),y: avatarImageYOffset())
+                }
             }
         }
-        Spacer()
     }
 
     private func avatarImageXOffset(from proxy:GeometryProxy) -> CGFloat{
