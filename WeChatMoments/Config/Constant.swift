@@ -9,10 +9,12 @@ import Foundation
 
 enum Constants {
     static let USER_NAME = "jsmith"
+    static let DEFAULT_EMPTY_IMAGE = "emptyImage"
 
     static let FONT_SIZE_COMMENT: CGFloat = 12
     static let FONT_SIZE_CONTENT: CGFloat = 15
     static let SENDER_AVATAR_SIZE = CGSize(width: 40, height: 40)
+    static let SENDER_PROFILE_SIZE = CGSize(width: 75, height: 75)
     static let IMAGE_SIZE = CGSize(width: 82, height: 82)
     static let TWEET_AVATAR_OFFSET: CGFloat = 5
     static let TWEET_SENDER_LEFT_OFFSET: CGFloat = 15
