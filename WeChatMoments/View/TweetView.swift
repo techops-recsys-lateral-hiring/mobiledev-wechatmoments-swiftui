@@ -22,7 +22,6 @@ struct TweetView: View {
                         height: Constants.SENDER_AVATAR_SIZE.height)
                     .cornerRadius(5.0)
 
-                Spacer()
                 // TODO: Assign the correct user name or nickname
                 VStack(alignment: .leading) {
                     Text("Placeholder Profile")
@@ -47,7 +46,7 @@ struct TweetView: View {
     }
 
     private func avatar(_from avatarURL: Any?) -> Image {
-        var avatar = Image(systemName: "person.crop.square.badge.camera")
+        var avatar = Image(Constants.DEFAULT_EMPTY_IMAGE)
         if let avatarURL = avatarURL as? String {
             ImageHelper.shared.getImage(avatarURL, forSize: Constants.SENDER_AVATAR_SIZE) { image in
                 avatar = Image(uiImage: image!)
@@ -79,7 +78,7 @@ struct TweetView: View {
                         .clipped()
                 } else {
                     // Placeholder view for empty slots in the grid
-                    Color.clear
+                    Image(Constants.DEFAULT_EMPTY_IMAGE)
                 }
             }
         }

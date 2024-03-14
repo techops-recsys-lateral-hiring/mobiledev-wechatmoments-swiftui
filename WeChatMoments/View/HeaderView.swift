@@ -48,6 +48,7 @@ struct HeaderView: View {
                 }
             }
         }
+        .ignoresSafeArea(.all)
     }
 
     private func avatarImageXOffset(from proxy: GeometryProxy) -> CGFloat {
