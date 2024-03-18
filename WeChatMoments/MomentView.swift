@@ -10,12 +10,10 @@ import SwiftUI
 struct MomentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            HeaderView()
+            TweetView(tweet: Tweet(content: "This is a tweet"))
+            FooterView()
         }
-        .padding()
     }
 }
 
