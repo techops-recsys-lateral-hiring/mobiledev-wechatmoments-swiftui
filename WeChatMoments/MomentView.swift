@@ -18,27 +18,19 @@ struct MomentView: View {
         momentsViewModel.tweets ?? []
     }
 
-    private var tweetList:some View{
-        List{
-            ForEach(0..<tweets.count,id: \.self) { index in
-                TweetView(tweet: tweets[index])
-            }
-        }.listStyle(.plain)
-    }
-
     var body: some View {
-        VStack {
-            if momentsViewModel.showIndicator{
-                indicatorView
+            List{
+                Group{
+                    HeaderView().ignoresSafeArea(.all)
+                    ForEach(0..<tweets.count,id: \.self) { index in
+                        TweetView(tweet: tweets[index])
+                    } .listRowSeparator(.hidden)
+                }.listRowInsets(EdgeInsets())
+            }.listStyle(PlainListStyle())
+            .onAppear{
+                momentsViewModel.loadData()
             }
-            HeaderView()
-            tweetList
-            FooterView()
-        }
-        .onAppear{
-            momentsViewModel.loadData()
-        }
-    }
+     }
 }
 
 #Preview {

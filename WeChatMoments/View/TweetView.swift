@@ -41,6 +41,7 @@ struct TweetView: View {
 
                 Spacer()
             }
+            Divider()
         }
         .padding(.all)
     }

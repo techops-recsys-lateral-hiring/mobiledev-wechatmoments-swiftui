@@ -22,7 +22,6 @@ struct HeaderView: View {
     @State private var nickname: String = ""
 
     var body: some View {
-        VStack {
             ZStack {
                 GeometryReader { proxy in
                     profileImage
@@ -46,9 +45,7 @@ struct HeaderView: View {
                             .border(.white, width: 2)
                     }.offset(x:avatarImageXOffset(from: proxy),y: avatarImageYOffset())
                 }
-            }
-        }
-        .ignoresSafeArea(.all)
+            }.frame(height:headerViewHeight + 28)
     }
 
     private func avatarImageXOffset(from proxy: GeometryProxy) -> CGFloat {
