@@ -11,7 +11,9 @@ struct MomentView: View {
     @ObservedObject var momentsViewModel = MomentsViewModel()
 
     private var indicatorView:some View{
-        return ProgressView().progressViewStyle(CircularProgressViewStyle())
+        return ProgressView()
+                .progressViewStyle(CircularProgressViewStyle())
+                .controlSize(.large)
     }
 
     private var tweets:[Tweet]{
@@ -24,12 +26,20 @@ struct MomentView: View {
                     HeaderView().ignoresSafeArea(.all)
                     ForEach(0..<tweets.count,id: \.self) { index in
                         TweetView(tweet: tweets[index])
-                    } .listRowSeparator(.hidden)
-                }.listRowInsets(EdgeInsets())
-            }.listStyle(PlainListStyle())
+                    } 
+                    .listRowSeparator(.hidden)
+                }
+                .listRowInsets(EdgeInsets())
+            }
+            .listStyle(PlainListStyle())
+            .overlay(content: {
+                if momentsViewModel.showIndicator{
+                    indicatorView
+                }
+             })
             .onAppear{
                 momentsViewModel.loadData()
-            }
+         }
      }
 }
 
