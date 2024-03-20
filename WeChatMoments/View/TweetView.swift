@@ -41,9 +41,8 @@ struct TweetView: View {
 
                 Spacer()
             }
-            Divider()
         }
-        .padding(.all)
+        .padding([.leading, .trailing], Constants.TWEET_SENDER_LEFT_OFFSET)
     }
 
     private func avatar(_from avatarURL: Any?) -> Image {

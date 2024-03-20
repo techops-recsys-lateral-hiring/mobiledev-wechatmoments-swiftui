@@ -33,7 +33,7 @@ class MomentsViewModel:ObservableObject{
                     print(error)
                 }
             } receiveValue: { tweets in
-                self.tweets = tweets
+                self.tweets = tweets.filter{$0.content != nil}
             }.store(in: &cancellable)
     }
 }

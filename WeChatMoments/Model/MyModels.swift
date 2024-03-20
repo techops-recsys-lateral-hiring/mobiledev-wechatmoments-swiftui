@@ -5,6 +5,8 @@
 //  Created by nontapat.siengsanor on 23/2/24.
 //
 
+import Foundation
+
 struct Comment: Decodable {
     let content: String?
     let sender: User?
@@ -21,7 +23,7 @@ struct Img: Decodable {
     let url: String
 }
 
-struct Tweet: Decodable {
+struct Tweet: Decodable,Hashable {
     let content: String?
 }
 

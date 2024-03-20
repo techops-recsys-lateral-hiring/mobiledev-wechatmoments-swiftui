@@ -17,16 +17,18 @@ struct MomentView: View {
     }
 
     private var tweets:[Tweet]{
-        momentsViewModel.tweets ?? []
+        print(momentsViewModel.tweets?.compactMap{$0} ?? [])
+        return momentsViewModel.tweets?.compactMap{$0} ?? []
     }
 
     var body: some View {
             List{
                 Group{
                     HeaderView().ignoresSafeArea(.all)
-                    ForEach(0..<tweets.count,id: \.self) { index in
-                        TweetView(tweet: tweets[index])
-                    } 
+                    ForEach(tweets, id: \.self) { tweet in
+                        TweetView(tweet: tweet)
+                        Divider()
+                    }
                     .listRowSeparator(.hidden)
                 }
                 .listRowInsets(EdgeInsets())
