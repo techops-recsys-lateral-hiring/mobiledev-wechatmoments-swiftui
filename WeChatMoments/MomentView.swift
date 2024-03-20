@@ -17,7 +17,6 @@ struct MomentView: View {
     }
 
     private var tweets:[Tweet]{
-        print(momentsViewModel.tweets?.compactMap{$0} ?? [])
         return momentsViewModel.tweets?.compactMap{$0} ?? []
     }
 
