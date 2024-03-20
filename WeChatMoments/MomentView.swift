@@ -10,38 +10,38 @@ import SwiftUI
 struct MomentView: View {
     @ObservedObject var momentsViewModel = MomentsViewModel()
 
-    private var indicatorView:some View{
+    private var indicatorView:some View {
         return ProgressView()
-                .progressViewStyle(CircularProgressViewStyle())
-                .controlSize(.large)
+            .progressViewStyle(CircularProgressViewStyle())
+            .controlSize(.large)
     }
 
-    private var tweets:[Tweet]{
-        return momentsViewModel.tweets?.compactMap{$0} ?? []
+    private var tweets:[Tweet] {
+        return momentsViewModel.tweets?.compactMap{ $0 } ?? []
     }
 
     var body: some View {
-            List{
-                Group{
-                    HeaderView().ignoresSafeArea(.all)
-                    ForEach(tweets, id: \.self) { tweet in
-                        TweetView(tweet: tweet)
-                        Divider()
-                    }
-                    .listRowSeparator(.hidden)
+        List {
+            Group {
+                HeaderView()
+                ForEach(tweets, id: \.self) { tweet in
+                    TweetView(tweet: tweet)
+                    Divider()
                 }
-                .listRowInsets(EdgeInsets())
+                .listRowSeparator(.hidden)
             }
-            .listStyle(PlainListStyle())
-            .overlay(content: {
-                if momentsViewModel.showIndicator{
-                    indicatorView
-                }
-             })
-            .onAppear{
-                momentsViewModel.loadData()
-         }
-     }
+            .listRowInsets(EdgeInsets())
+        }
+        .listStyle(PlainListStyle())
+        .overlay(content: {
+            if momentsViewModel.showIndicator {
+                indicatorView
+            }
+        })
+        .onAppear {
+            momentsViewModel.loadData()
+        }.ignoresSafeArea()
+    }
 }
 
 #Preview {
