@@ -20,6 +20,10 @@ struct MomentView: View {
         return momentsViewModel.tweets?.compactMap{ $0 } ?? []
     }
 
+    private var User: User? {
+        return momentsViewModel.user
+    }
+
     var body: some View {
         List {
             Group {
