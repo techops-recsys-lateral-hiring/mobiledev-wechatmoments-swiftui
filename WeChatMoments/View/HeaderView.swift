@@ -82,7 +82,7 @@ struct HeaderView: View {
     private func setAvatarImage(for user: User) {
         if let url = user.avatar {
             guard let image = ImageHelper.shared.getImage(url, forSize: Constants.SENDER_AVATAR_SIZE) else { return }
-            self.avatarImage = Image(uiImage: image)
+            avatarImage = Image(uiImage: image)
         }
     }
 

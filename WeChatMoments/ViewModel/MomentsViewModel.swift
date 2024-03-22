@@ -26,7 +26,7 @@ class MomentsViewModel: ObservableObject {
     }
 
     private func loadTweets() {
-        self.tweetService.getTweets(Constants.USER_NAME)
+        tweetService.getTweets(Constants.USER_NAME)
             .receive(on: RunLoop.main)
             .sink { completion in
                 self.completionHandler(completion, message: "Tweets Loaded")
@@ -36,7 +36,7 @@ class MomentsViewModel: ObservableObject {
     }
 
     private func loadUserProfile() {
-        self.userService.getUserProfile(Constants.USER_NAME)
+        userService.getUserProfile(Constants.USER_NAME)
             .receive(on: RunLoop.main)
             .sink { completion in
                 self.completionHandler(completion, message: "User Loaded")
@@ -46,7 +46,7 @@ class MomentsViewModel: ObservableObject {
     }
 
     fileprivate func completionHandler(_ completion: Subscribers.Completion<any Error>, message: String) {
-        self.showIndicator.toggle()
+        showIndicator.toggle()
         switch completion {
             case .finished:
                 print(message)
