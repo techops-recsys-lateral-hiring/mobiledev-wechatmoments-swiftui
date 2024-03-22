@@ -20,10 +20,14 @@ struct MomentView: View {
         return momentsViewModel.tweets?.compactMap{ $0 } ?? []
     }
 
+    private var user: User? {
+        return momentsViewModel.user
+    }
+
     var body: some View {
         List {
             Group {
-                HeaderView()
+                HeaderView(user: user)
                 ForEach(tweets, id: \.self) { tweet in
                     TweetView(tweet: tweet)
                     Divider()

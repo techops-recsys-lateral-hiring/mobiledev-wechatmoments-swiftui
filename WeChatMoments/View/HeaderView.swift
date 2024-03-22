@@ -8,44 +8,56 @@
 import SwiftUI
 
 struct HeaderView: View {
+    private let avatarImageWidth: CGFloat = 75
+    private let avatarImageHeight: CGFloat = 75
 
-    private var avatarImageWidth: CGFloat = 75
-    private var avatarImageHeight: CGFloat = 75
+    private let nickNameLabelWidth: CGFloat = 200
+    private let nickNameFontSize: CGFloat = 16
 
-    private var nickNameLabelWidth: CGFloat = 200
-    private var nickNameFontSize: CGFloat = 16
-
-    private var headerViewHeight: CGFloat = 370
+    private let headerViewHeight: CGFloat = 370
 
     @State private var profileImage: Image = Image(Constants.DEFAULT_EMPTY_IMAGE)
     @State private var avatarImage: Image = Image(Constants.DEFAULT_EMPTY_IMAGE)
     @State private var nickname: String = ""
 
+    var user: User?
+
     var body: some View {
-            ZStack {
-                GeometryReader { proxy in
-                    profileImage
+        ZStack {
+            GeometryReader { proxy in
+                profileImage
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: proxy.size.width,height: headerViewHeight)
+                    .clipped()
+
+                HStack(spacing: 20) {
+                    Text(nickname)
+                        .frame(width: nickNameLabelWidth,alignment: .trailing)
+                        .font(.system(size: nickNameFontSize,weight: .bold))
+                        .foregroundColor(.white)
+                        .lineLimit(1)
+                        .truncationMode(.middle)
+                        .padding(.bottom,15)
+
+                    avatarImage
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: proxy.size.width,height: headerViewHeight)
-                        .clipped()
-                    HStack(spacing: 20) {
-                        Text(nickname)
-                            .frame(width: nickNameLabelWidth,alignment: .trailing)
-                            .font(.system(size: nickNameFontSize,weight: .bold))
-                            .foregroundColor(.white)
-                            .lineLimit(1)
-                            .truncationMode(.middle)
-                            .padding(.bottom,15)
-                        avatarImage
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: avatarImageWidth, height: avatarImageHeight)
-                            .clipShape(RoundedRectangle(cornerRadius: 5))
-                            .border(.white, width: 2)
-                    }.offset(x:avatarImageXOffset(from: proxy),y: avatarImageYOffset())
+                        .scaledToFill()
+                        .frame(width: avatarImageWidth, height: avatarImageHeight)
+                        .cornerRadius(5)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.white, lineWidth: 2)
+                        )
+                }.offset(x:avatarImageXOffset(from: proxy),y: avatarImageYOffset())
+            }.onAppear {
+                if let user = user {
+                    setProfileImage(for: user)
+                    setNickNameLabel(for: user)
+                    setAvatarImage(for: user)
                 }
-            }.frame(height:headerViewHeight + 28)
+            }
+        }.frame(height:headerViewHeight + 28)
     }
 
     private func avatarImageXOffset(from proxy: GeometryProxy) -> CGFloat {
@@ -59,7 +71,6 @@ struct HeaderView: View {
         return headerViewHeight - padding
     }
 
-    //TODO: Call after receiving User object
     private func setProfileImage(for user: User) {
         if let url = user.profile {
             ImageHelper.shared.getImage(url, forSize: Constants.SENDER_PROFILE_SIZE) { image in
@@ -68,16 +79,13 @@ struct HeaderView: View {
         }
     }
 
-    //TODO: Call after receiving User object
     private func setAvatarImage(for user: User) {
         if let url = user.avatar {
-            ImageHelper.shared.getImage(url, forSize: Constants.SENDER_AVATAR_SIZE) { image in
-                self.avatarImage = Image(uiImage: image!)
-            }
+            guard let image = ImageHelper.shared.getImage(url, forSize: Constants.SENDER_AVATAR_SIZE) else { return }
+            avatarImage = Image(uiImage: image)
         }
     }
 
-    //TODO: Call after receiving User object
     private func setNickNameLabel(for user: User) {
         if let nickName = user.nick {
             self.nickname = nickName
@@ -86,5 +94,9 @@ struct HeaderView: View {
 }
 
 #Preview {
-    HeaderView()
+    HeaderView(user: User(username: "jsmith",
+                          nick: "John Smith",
+                          avatar: "http://info.thoughtworks.com/rs/thoughtworks2/images/glyph_badge.png",
+                          profile: "http://img2.findthebest.com/sites/default/files/688/media/images/Mingle_159902_i0.png")
+    )
 }
