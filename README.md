@@ -9,7 +9,7 @@
 2. Execute `npm install -g mountebank`
 3. Execute `mb --configfile imposters.ejs`
 4. Open `WeChatMoments.xcodeproj` in the current directory and ensure that SPM (Swift Package Manager) frameworks are ready
-5. Run the project and make sure the app can start correctly(don't worry about if the features are working properly)
+5. Run the project and make sure the app can start correctly (don't worry about if the features are not working properly)
 
 ### App Introduction
 
