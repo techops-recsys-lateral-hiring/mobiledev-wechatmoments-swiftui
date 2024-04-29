@@ -37,8 +37,7 @@ The below screenshots are from Wechat App, they are for reference/inspiration th
 
 - The data JSON will be hosted at localhost:2727
 - An example of the response in `WeChatMomentsTests/Resources/Tweet.json` 
-- Layout using storyboards or programmatically
-- AutoLayout & Size Classes is appreciated.
+- Layout using swiftUI
 - Unit tests are appreciated.
 - Functional programming is appreciated
 - Utilise GCD for multi-thread operation
