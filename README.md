@@ -6,10 +6,24 @@
 
 ### Setup the project
 1. Locate the current directory in terminal
-2. Execute `npm install -g mountebank`
-3. Execute `mb --configfile imposters.ejs`
-4. Open `WeChatMoments.xcodeproj` in the current directory and ensure that SPM (Swift Package Manager) frameworks are ready
-5. Run the project and make sure the app can start correctly (don't worry about if the features are not working properly)
+2. Start backend server
+   1. Execute `npm install -g mountebank`
+   2. Execute `mb --configfile imposters.ejs` and keep the terminal open.
+3. Start the iOS application
+   1. Open `WeChatMoments.xcodeproj` in the current directory and ensure that SPM (Swift Package Manager) frameworks are ready
+   2. Run the project and make sure the app can start correctly (don't worry about if the features are not working properly)
+4. To validate your setup, please check 2 things below.
+
+| Expected app screen  | Expected log due to step 3 |
+| -------- | ------- |
+|  <img src="https://github.com/techops-recsys-lateral-hiring/mobiledev-wechatmoments-objectiveC/assets/17498546/46d51f98-f97c-4b5c-9f7b-682b1a906f93" alt="wechat_moments_2" height=200 />|  <img src="https://github.com/techops-recsys-lateral-hiring/mobiledev-wechatmoments-objectiveC/assets/17498546/0ca432b9-f782-43e4-a8e5-b7e133afe380" alt="wechat_moments_2" height=100 />  |
+
+
+
+
+
+
+
 
 ### App Introduction
 
